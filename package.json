@@ -1,0 +1,49 @@
+{
+  "name": "gestion-bhds",
+  "version": "1.0.0",
+  "description": "Gestion Scolaire BHDS - Club Réussir Ensemble",
+  "main": "main.js",
+  "author": "M. Diallo Boubacar - ENPETP Mamou",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish=never",
+    "release": "electron-builder --publish=always"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "gn.mamou.enpetp.gestionbhds",
+    "productName": "Gestion BHDS",
+    "files": [
+      "index.html",
+      "main.js",
+      "build/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.png",
+      "category": "public.app-category.education"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "build/icon.png",
+      "category": "Education"
+    }
+  }
+}
